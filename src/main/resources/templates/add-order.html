@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+<header th:replace="fragments/common :: navbar"></header>
+<main>
+  <section class="mainSection">
+    <h2>Add Order</h2>
+    <form th:action="@{/order/add}" th:method="POST">
+      <label>Choose a user:</label>
+      <select name="userFirstName" id="users">
+        <option th:each="u : ${users}" th:value="${u.userFirstName}" th:text="${u.userFirstName}" th:name="${u.userFirstName}">Restaurant</option>
+      </select>
+      <br><br>
+      <label>Choose a Restaurant:</label>
+      <select name="restaurantName" id="restaurants">
+        <option th:each="r : ${restaurants}" th:value="${r.name}" th:text="${r.name}" th:name="${r.name}">Restaurant</option>
+      </select>
+      <br><br>
+      <label for="status">Choose a Status:</label>
+      <select id="status" name="status" class="custom-select">
+        <option th:each="t : ${T(bg.foodorderingapplication.model.enums.OrderStatusEnum).values()}"
+                th:text="${t}" th:value="${t}">Gaming
+        </option>
+      </select>
+      <br><br>
+      <button>Submit</button>
+    </form>
+  </section>
+</main>
+</body>
+
+</html>

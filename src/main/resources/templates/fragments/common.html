@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css"/>
+    <title>Food Ordering Application</title>
+</head>
+<body>
+    <header th:fragment="navbar">
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/restaurant/add}">Add Restaurant</a>
+                </li>
+                <li>
+                    <a th:href="@{/dish/add}">Add Dish</a>
+                </li>
+                <li>
+                    <a th:href="@{/user/add}">Add User</a>
+                </li>
+                <li>
+                    <a th:href="@{/order/add}">Add Order</a>
+                </li>
+                <li>
+                    <a th:href="@{/restaurant/all}">Restaurants</a>
+                </li>
+                <li>
+                    <a th:href="@{/user/all}">Users</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>

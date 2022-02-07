@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+<body>
+<header th:replace="fragments/common :: navbar"></header>
+<main>
+    <section class="mainSection">
+        <h2>All Restaurants</h2>
+
+        <div th:each="user : ${users}" th:object="${user}">
+            <ul>
+                <li th:text="| *{firstName}  *{lastName}|">Restaurant </li>
+                <form th:action="@{/delete/{id}/user(id=*{id})}" th:method="delete">
+                    <button>Delete</button>
+                </form>
+                <a th:href="@{/user/{id}/edit(id=*{id})}">Edit</a>
+            </ul>
+        </div>
+    </section>
+</main>
+</body>
+</html>

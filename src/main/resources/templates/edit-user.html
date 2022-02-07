@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+<body>
+<header th:replace="fragments/common :: navbar"></header>
+<main>
+    <section class="mainSection">
+        <h2>Add User</h2>
+        <form th:object="${user}" th:action="@{/user/{id}/edit(id=*{id})}" th:method="PATCH">
+            <input th:field="*{firstName}" type="text" placeholder="First Name" name="firstName">
+            <input th:field="*{lastName}" type="text" placeholder="Last Name" name="lastName">
+            <input th:field="*{email}" type="text" placeholder="Email" name="email">
+            <input th:field="*{address}" type="text" placeholder="Address" name="address">
+            <input th:field="*{phoneNumber}" type="text" placeholder="Phone Number" name="phoneNumber">
+            <button>Submit</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>

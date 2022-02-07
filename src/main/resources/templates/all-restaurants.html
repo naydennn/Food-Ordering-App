@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+<body>
+<header th:replace="fragments/common :: navbar"></header>
+<main>
+  <section class="mainSection">
+    <h2>All Restaurants</h2>
+
+    <div th:each="restaurant : ${restaurants}" th:object="${restaurant}">
+    <ul>
+      <li th:text="*{name}">Restaurant </li>
+      <form th:action="@{/delete/{id}/restaurant(id=*{id})}" th:method="delete">
+        <button>Delete</button>
+      </form>
+    </ul>
+    </div>
+  </section>
+</main>
+</body>
+</html>

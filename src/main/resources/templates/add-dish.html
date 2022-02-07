@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head"></head>
+<body>
+<header th:replace="fragments/common :: navbar"></header>
+<main>
+    <section class="mainSection">
+        <h2>Add Dish</h2>
+        <form th:action="@{/dish/add}" th:method="POST">
+            <input type="text" placeholder="name" name="name">
+            <textarea class="description" placeholder="description" name="description" cols="30"
+                      rows="10"></textarea>
+            <input type="text" placeholder="url" name="url">
+            <label for="restaurants">Choose a Restaurant:</label>
+            <select name="restaurantName" id="restaurants">
+                <option th:each="r : ${restaurants}" th:value="${r.name}" th:text="${r.name}" th:name="${r.name}">Restaurant</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>
